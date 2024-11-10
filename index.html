@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=menu" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+  <style>
+  *{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  }
+  body{
+  background-color: #1D3A58 ;
+  max-width: 100vh;
+  }
+  .header{
+  display: flex;
+  justify-content: space-between;
+  background-color:  #1D3A58;
+  color: white;
+  padding: 1rem;
+  align-items: center;
+  }
+  #cake{
+  width: 2rem;
+  border-radius: 50%;
+  animation-name: putar;
+  animation-duration: 10s;
+  }
+  logo{
+  font-size: 1rem;
+  }
+  .isi{
+  min-width: 100vw;
+  margin-bottom: 2rem;
+  }
+  
+  #ultah{
+  width:100%;
+  height: 20rem;
+  background-position: center;
+  background-size: cover;
+  
+  }
+  ultah{
+  font-size: 1rem;
+  font-family: "Happy Monkey", system-ui;
+  }
+  .ultah{
+  padding: 1rem;
+  font-size: 4rem;
+  display: flex;
+  background: #1D3A58;
+  }
+  #kata{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+  .button{
+    display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+  }
+  #btn-click{
+  padding: 10px;
+  background: #ff6ea1;
+  border: none;
+  }
+  .decoration{
+  width:100%;
+  height: 5rem;
+  position: relative;
+  background-size: center;
+  background-position: center;
+  }
+  .kenangan{
+  border: 1px solid black;
+  width: 10rem;
+  }
+  #mmh{
+  width: 100%;
+  height: 10rem;
+  }
+  #typing-text::after {
+    content: '|';
+    animation: blink 0.7s step-end infinite;
+}
+.interface{
+background: #051166;
+}
+/* Efek blink cursor */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+  @keyframes putar{
+  0%{
+
+  }
+  100%{
+  transform: rotate(360);
+  }
+  }
+  
+  .pesan-penting{
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  }
+  #audio{
+  background:#1D3A58 ;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2rem;
+  }
+  .bungkus-loding{
+  }
+  .cake-domain{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  justify-content: center;
+  position: relative;
+  }
+#tekan{
+ margin-top:2rem;
+}
+  #loading{
+  width: 15rem;
+  }
+  #api{
+  width:  3rem;
+  top:256px;
+  
+  position: absolute;
+  }
+  #padam{
+  padding: 10px 4rem;
+  background:#ff6ea1 ;
+  position: absolute;
+  top: 28rem;
+  border: none;
+  border-radius: 2rem;
+  }
+  </style>
+</head>
+<body>
+    <div class="bungkus-loding">
+  <div class="cake-domain">
+  <img id="loading" src="img/loading.png" alt="">
+  <img id="api" src="img/api.gif" alt="">
+  <button id="padam" onclick="mati()">tiup lilin..!</button>
+  </div>
+  </div>
+  
+  <div class="interface">
+   <div class="header">
+    <logo id='logo'>
+    
+    </logo>
+    <img id="cake" src="img/kueh.jpg" alt="">
+   </div>
+
+  <div class="isi">
+   <img id="ultah" src="img/ultah.jpg" alt="">
+  </div>
+  <img class="decoration" src="img/decoration.png" alt="">
+  <div class="ultah">
+    <div id="kata">
+   <ultah id="isi">"Happy Birthday,</ultah>
+    </div>
+         <button onclick="alertin()" id="btn-click">
+    Pencet
+   </button>
+     
+  </div>
+  <p id="tekan">Tekan Satu satu karna ini pesan penting,dan besarkan volume</p>
+  <div class="pesan-penting">
+  <div class="audio-items">
+    <button id="audio" onclick="audio('zahra')"> zahra</button>
+  
+  </div>
+  <div class="audio-items">
+    <button id="audio" onclick="audio('dede')">dede</button>
+    <p></p>
+  </div>
+  <div class="audio-items">
+    <button id="audio" onclick="audio('nanda')">nanda</button>
+ </div>
+    
+  </div>
+  </div>
+  
+  <script>
+const inter = document.querySelector('.interface')
+
+const loading = document.querySelector('.bungkus-loding')
+ inter.style.display = 'none'
+ loading.style.display = 'block'
+  function mati(){
+    setTimeout(()=>{
+      const api =document.getElementById('api').style.display = 'none'
+  inter.style.display = 'block'
+   loading.style.display = 'none'
+    },2000)
+  
+  
+  api.style.width = '10px'
+  setTimeot(()=>{
+    const api =document.getElementById('api')
+    api.style.width = '20px'
+  },1000)
+  }
+  const alertin =() =>{
+  const umur = prompt('masukan umur mu mamah')
+  alert(`selamat ulang tahun yang ke ${umur}`)
+  }
+  function audio(nama){
+  if(nama === 'zahra'){
+  const zahra = new Audio('mp3/Zahra.mp3')
+zahra.play()
+  }
+  if(nama === 'dede'){
+  const dede = new Audio('mp3/Dede.mp3.aac')
+dede.play()
+  }
+  if(nama === 'nanda'){
+  const nanda = new Audio('mp3/Nanda.mp3.aac')
+nanda.play()
+  }
+  }
+  
+  
+  
+  
+    // Menentukan teks yang akan diketik
+const logotext = ""
+const text = "mah ! ,Semoga panjang umur, sehat selalu, dan bahagia selalu,mohon maaf jika tidak ada kueh di karena kan kurir nu nganter kueh na kasarean,semoga dengan kata kata ini bisa bikin mamah wareug hatur nuhun,sekian kata kata dari --nanda gobles-- putra mahkota orang jati ";
+const typingTextElement = document.getElementById('isi');
+const logo = document.getElementById('logo');
+// Fungsi untuk mengetikkan teks satu per satu
+let index = 0;
+function type() {
+    if (index < text.length) {
+        typingTextElement.textContent += text.charAt(index);
+        logo.textContent += logotext.charAt(index);
+        index++;
+        setTimeout(type, 100); // Ulangi fungsi setiap 100ms
+    }
+}
+window.onload = type;
+  </script>
+</body>
+</html>
